@@ -66,17 +66,16 @@ WINE_DEFAULT_DEBUG_CHANNEL(fsync);
 /* futex_waitv interface */
 
 #ifndef __NR_futex_waitv
-
 # define __NR_futex_waitv 449
-# define FUTEX_32 2
+#endif
+
+#define FUTEX_32 2
 struct futex_waitv {
     uint64_t   val;
     uint64_t   uaddr;
     uint32_t   flags;
     uint32_t __reserved;
 };
-
-#endif
 
 #define u64_to_ptr(x) (void *)(uintptr_t)(x)
 
